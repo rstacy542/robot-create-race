@@ -22,7 +22,7 @@ class Mansion(val mansionName: String) extends Thread {
       val unusedParts = buildRobotWith(retrievedParts)
       bodyParts = bodyParts ++ unusedParts
        
-      while (partiallyBuiltRobot.isRobotComplete()) {
+      while (partiallyBuiltRobot.isComplete()) {
         robots = robots ++ List(partiallyBuiltRobot)
         partiallyBuiltRobot = new Robot()
         bodyParts = buildRobotWith(bodyParts)
@@ -37,6 +37,6 @@ class Mansion(val mansionName: String) extends Thread {
    * Takes in a list of available robot parts and tries to build a robot.  It will return the list of unusable parts.
    */
   def buildRobotWith(availableRobotParts: List[RobotPart]): List[RobotPart] = {
-    availableRobotParts.filter {bodyPart => partiallyBuiltRobot.isRobotComplete() || !partiallyBuiltRobot.addPart(bodyPart)}
+    availableRobotParts.filter {bodyPart => partiallyBuiltRobot.isComplete() || !partiallyBuiltRobot.addPart(bodyPart)}
   }
 }

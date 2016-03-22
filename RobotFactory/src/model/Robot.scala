@@ -18,5 +18,5 @@ class Robot {
     }
   }
   
-  def isRobotComplete(): Boolean = robotParts.size == 9
+  def isComplete(): Boolean = robotParts.size == 9
 }
